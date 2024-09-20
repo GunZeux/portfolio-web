@@ -9,9 +9,10 @@ def send_email(message):
     port = 465
 
     try:
-        password = st.secrets["PASSWORD"]
-    except Exception as ex:
         password = os.getenv("PASSWORD")
+
+    except Exception as ex:
+        password = st.secrets["PASSWORD"]
 
     user_mail = "gunzeux71@gmail.com"
     reciever_mail = "gunzeux71+portfolio@gmail.com"
