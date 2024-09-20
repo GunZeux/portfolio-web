@@ -7,7 +7,12 @@ import streamlit as st
 def send_email(message):
     host = "smtp.gmail.com"
     port = 465
-    password = st.secrets["PASSWORD"]
+
+    try:
+        password = st.secrets["PASSWORD"]
+    except Exception as ex:
+        password = os.getenv("PASSWORD")
+
     user_mail = "gunzeux71@gmail.com"
     reciever_mail = "gunzeux71+portfolio@gmail.com"
     context = ssl.create_default_context()
